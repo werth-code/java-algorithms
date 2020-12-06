@@ -3,6 +3,7 @@ package com.treehouse;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
@@ -12,7 +13,15 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
+        String str = "this is a string";
+        String[] split = str.split(" ");
 
+        StringBuilder stringBuilder = new StringBuilder();
+        Arrays.stream(split).forEachOrdered(ele -> {
+            ele = Character.toUpperCase(ele.charAt(0)) + ele.substring(1);
+            stringBuilder.append(ele + " ");
+        });
+        System.out.println(stringBuilder);
     }
         //System.out.println(IntStream.range(1,5).sum()); //prints 10 (sum of all numbers up to and not including 5.)
 
