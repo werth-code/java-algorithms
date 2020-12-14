@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
+import java.util.stream.Stream;
 
 
 public class Main {
@@ -11,6 +13,7 @@ public class Main {
     //quicksort is marginally faster than mergesort but they are both highly efficient. (0 log n)
 
     public static void main(String[] args) {
+
         ArrayList<Integer> list = new ArrayList<Integer>(Arrays.asList(32, 100, 1, 2, 29, 28, 88, 3, 50, 67, 37, 1, 57, 20));
         System.out.println(quicksort(list));
 
@@ -48,56 +51,53 @@ public class Main {
     }
 
 
-        static List<Integer> mergeSort(List<Integer> list) {
-            if (list.size() <= 1) {
-                return list;
-            }
-            int middleIndex = list.size() / 2;
-            List<Integer> leftList =
-                    mergeSort(list.subList(0, middleIndex));
-            List<Integer> rightList =
-                    mergeSort(list.subList(middleIndex, list.size()));
-            List<Integer> sortedList = new ArrayList<Integer>();
-            int leftIndex = 0;
-            int rightIndex = 0;
-            int leftLength = leftList.size();
-            int rightLength = rightList.size();
-            while (leftIndex < leftLength && rightIndex < rightLength) {
-                if (leftList.get(leftIndex) < rightList.get(rightIndex)) {
-                    sortedList.add(leftList.get(leftIndex));
-                    leftIndex++;
-                } else {
-                    sortedList.add(rightList.get(rightIndex));
-                    rightIndex++;
-                }
-            }
-            sortedList.addAll(leftList.subList(leftIndex, leftLength));
-            sortedList.addAll(rightList.subList(rightIndex, rightLength));
-            return sortedList;
+    static List<Integer> mergeSort(List<Integer> list) {
+        if (list.size() <= 1) {
+            return list;
         }
-
-
-        static int indexOfItem(List<String> list, String target) {
-            int first = 0;
-            int last = list.size() - 1;
-            while (first <= last) {
-                int midpoint = (first + last) / 2;
-                int comparisonResult = list.get(midpoint).compareTo(target);
-                if (comparisonResult == 0) {
-                    return midpoint;
-                } else if (comparisonResult < 0) {
-                    first = midpoint + 1;
-                } else {
-                    last = midpoint - 1;
-                }
+        int middleIndex = list.size() / 2;
+        List<Integer> leftList =
+                mergeSort(list.subList(0, middleIndex));
+        List<Integer> rightList =
+                mergeSort(list.subList(middleIndex, list.size()));
+        List<Integer> sortedList = new ArrayList<Integer>();
+        int leftIndex = 0;
+        int rightIndex = 0;
+        int leftLength = leftList.size();
+        int rightLength = rightList.size();
+        while (leftIndex < leftLength && rightIndex < rightLength) {
+            if (leftList.get(leftIndex) < rightList.get(rightIndex)) {
+                sortedList.add(leftList.get(leftIndex));
+                leftIndex++;
+            } else {
+                sortedList.add(rightList.get(rightIndex));
+                rightIndex++;
             }
-            // We have to return an integer, so return an "impossible"
-            // index to indicate value was not found.
-            return -1;
         }
+        sortedList.addAll(leftList.subList(leftIndex, leftLength));
+        sortedList.addAll(rightList.subList(rightIndex, rightLength));
+        return sortedList;
+    }
 
 
-
+    static int indexOfItem(List<String> list, String target) {
+        int first = 0;
+        int last = list.size() - 1;
+        while (first <= last) {
+            int midpoint = (first + last) / 2;
+            int comparisonResult = list.get(midpoint).compareTo(target);
+            if (comparisonResult == 0) {
+                return midpoint;
+            } else if (comparisonResult < 0) {
+                first = midpoint + 1;
+            } else {
+                last = midpoint - 1;
+            }
+        }
+        // We have to return an integer, so return an "impossible"
+        // index to indicate value was not found.
+        return -1;
+    }
 
 
     //System.out.println(IntStream.range(1,5).sum()); //prints 10 (sum of all numbers up to and not including 5.)
@@ -135,4 +135,5 @@ public class Main {
 //                    });
 //        names.close();
 //    }
+
 }
