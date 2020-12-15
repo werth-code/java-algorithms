@@ -20,7 +20,8 @@ public class ArrayIntersection {
 
         for (int num : nums2) {
             if(map.containsKey(num) && map.get(num) > 0) {
-                returnArr[index++] = num;
+                returnArr[index] = num;
+                index++;
                 map.put(num, map.get(num) - 1);
             }
         }

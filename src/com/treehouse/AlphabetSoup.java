@@ -5,14 +5,16 @@ import java.util.Arrays;
 public  class AlphabetSoup {
 
     public static String alphabetSoup(String str) {
-        String returnString = "";
+        StringBuilder returnString = new StringBuilder();
 
-        String[] strings2 = str.split("");
-        Arrays.sort(strings2);
+        str = str.toLowerCase();
+        String[] strings = str.split("");
+        Arrays.sort(strings);
 
-        for (String letter : strings2) {
-            returnString += letter.toLowerCase();
+        for (String letter : strings) {
+            returnString.append(letter);
         }
-        return returnString;
+
+        return returnString.toString();
     }
 }
