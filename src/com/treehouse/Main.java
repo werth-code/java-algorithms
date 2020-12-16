@@ -25,6 +25,8 @@ public class Main {
         System.out.println(indexOfItem(list3, "Lucie Hansman"));
     }
 
+    //QUICKSORT
+
     static ArrayList<Integer> quicksort(ArrayList<Integer> list) {
         if (list.size() <= 1) {
             return list;
@@ -50,6 +52,7 @@ public class Main {
         return sortedList;
     }
 
+    //MERGESORT
 
     static List<Integer> mergeSort(List<Integer> list) {
         if (list.size() <= 1) {
@@ -79,6 +82,7 @@ public class Main {
         return sortedList;
     }
 
+    //BINARY SEARCH
 
     static int indexOfItem(List<String> list, String target) {
         int first = 0;
