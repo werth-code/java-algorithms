@@ -2,7 +2,10 @@ package com.treehouse;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class ArrayIntersection {
 
@@ -26,5 +29,30 @@ public class ArrayIntersection {
             }
         }
         return Arrays.copyOf(returnArr, index);
+    }
+
+
+    public static int[] intersectWithStreams(int[] nums1, int[] nums2) {
+        int size = 0;
+        int[] returnArr = new int[nums1.length];
+
+        List<Integer> list1 = IntStream.of(nums1).boxed().collect(Collectors.toList());
+        List<Integer> list2 = IntStream.of(nums2).boxed().collect(Collectors.toList());
+
+        for (Integer num : list1) {
+            if (list2.indexOf(num) != -1) {
+                list2.remove(num);
+                returnArr[size++] = num;
+            }
+        }
+
+        return Arrays.copyOf(returnArr, size);
+
+//        return list1.stream()
+//                .filter(ele-> list2.contains(ele))
+//                .mapToInt(i -> i)
+//                .toArray();
+//    }
+
     }
 }
