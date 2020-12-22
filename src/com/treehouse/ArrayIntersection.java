@@ -40,7 +40,7 @@ public class ArrayIntersection {
         List<Integer> list2 = IntStream.of(nums2).boxed().collect(Collectors.toList());
 
         for (Integer num : list1) {
-            if (list2.indexOf(num) != -1) {
+            if (list2.contains(num)) {
                 list2.remove(num);
                 returnArr[size++] = num;
             }
