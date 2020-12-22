@@ -4,11 +4,10 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class Cb1Test {
+class RectangleAreaTest {
 
     @Test
-    void test1() {
-        String str = "22233222";
+    void rectangleArea() {
 
     }
 }
