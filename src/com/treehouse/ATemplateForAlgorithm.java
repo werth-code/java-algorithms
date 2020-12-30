@@ -1,6 +1,8 @@
 package com.treehouse;
 
-public class Cb1 {
+public class ATemplateForAlgorithm {
+
+
 
     public static void algo(String str) {
 

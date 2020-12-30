@@ -14,94 +14,98 @@ public class Main {
 
     public static void main(String[] args) {
 
-        ArrayList<Integer> list = new ArrayList<Integer>(Arrays.asList(32, 100, 1, 2, 29, 28, 88, 3, 50, 67, 37, 1, 57, 20));
-        System.out.println(quicksort(list));
+        List<String> strings = new ArrayList<>();
 
-        ArrayList<Integer> list2 = new ArrayList<Integer>(Arrays.asList(32, 100, 1, 2, 29, 28, 88, 3, 50, 67, 37, 1, 57, 20));
-        System.out.println(mergeSort(list2));
 
-        ArrayList<String> list3 = new ArrayList<String>(
-                Arrays.asList("Elida Sleight", "Francina Vigneault", "Lucie Hansman", "Nancie Rubalcaba"));
-        System.out.println(indexOfItem(list3, "Lucie Hansman"));
     }
 
-    //QUICKSORT
+//            ArrayList<Integer> list = new ArrayList<Integer>(Arrays.asList(32, 100, 1, 2, 29, 28, 88, 3, 50, 67, 37, 1, 57, 20));
+//        System.out.println(quicksort(list));
+//
+//        ArrayList<Integer> list2 = new ArrayList<Integer>(Arrays.asList(32, 100, 1, 2, 29, 28, 88, 3, 50, 67, 37, 1, 57, 20));
+//        System.out.println(mergeSort(list2));
+//
+//        ArrayList<String> list3 = new ArrayList<String>(
+//                Arrays.asList("Elida Sleight", "Francina Vigneault", "Lucie Hansman", "Nancie Rubalcaba"));
+//        System.out.println(indexOfItem(list3, "Lucie Hansman"));
 
-    static ArrayList<Integer> quicksort(ArrayList<Integer> list) {
-        if (list.size() <= 1) {
-            return list;
-        }
-
-        ArrayList<Integer> lessThanPivot = new ArrayList<Integer>();
-        ArrayList<Integer> greaterThanPivot = new ArrayList<Integer>();
-
-        int pivot = list.get(0);
-        int length = list.size();
-        for (int i = 1; i < length; i++) {
-            int currentValue = list.get(i);
-            if (currentValue <= pivot) {
-                lessThanPivot.add(currentValue);
-            } else {
-                greaterThanPivot.add(currentValue);
-            }
-        }
-        ArrayList<Integer> sortedList = new ArrayList<Integer>();
-        sortedList.addAll(quicksort(lessThanPivot));
-        sortedList.add(pivot);
-        sortedList.addAll(quicksort(greaterThanPivot));
-        return sortedList;
-    }
-
-    //MERGESORT
-
-    static List<Integer> mergeSort(List<Integer> list) {
-        if (list.size() <= 1) {
-            return list;
-        }
-        int middleIndex = list.size() / 2;
-        List<Integer> leftList =
-                mergeSort(list.subList(0, middleIndex));
-        List<Integer> rightList =
-                mergeSort(list.subList(middleIndex, list.size()));
-        List<Integer> sortedList = new ArrayList<Integer>();
-        int leftIndex = 0;
-        int rightIndex = 0;
-        int leftLength = leftList.size();
-        int rightLength = rightList.size();
-        while (leftIndex < leftLength && rightIndex < rightLength) {
-            if (leftList.get(leftIndex) < rightList.get(rightIndex)) {
-                sortedList.add(leftList.get(leftIndex));
-                leftIndex++;
-            } else {
-                sortedList.add(rightList.get(rightIndex));
-                rightIndex++;
-            }
-        }
-        sortedList.addAll(leftList.subList(leftIndex, leftLength));
-        sortedList.addAll(rightList.subList(rightIndex, rightLength));
-        return sortedList;
-    }
-
-    //BINARY SEARCH
-
-    static int indexOfItem(List<String> list, String target) {
-        int first = 0;
-        int last = list.size() - 1;
-        while (first <= last) {
-            int midpoint = (first + last) / 2;
-            int comparisonResult = list.get(midpoint).compareTo(target);
-            if (comparisonResult == 0) {
-                return midpoint;
-            } else if (comparisonResult < 0) {
-                first = midpoint + 1;
-            } else {
-                last = midpoint - 1;
-            }
-        }
-        // We have to return an integer, so return an "impossible"
-        // index to indicate value was not found.
-        return -1;
-    }
+//    //QUICKSORT
+//
+//    static ArrayList<Integer> quicksort(ArrayList<Integer> list) {
+//        if (list.size() <= 1) {
+//            return list;
+//        }
+//
+//        ArrayList<Integer> lessThanPivot = new ArrayList<Integer>();
+//        ArrayList<Integer> greaterThanPivot = new ArrayList<Integer>();
+//
+//        int pivot = list.get(0);
+//        int length = list.size();
+//        for (int i = 1; i < length; i++) {
+//            int currentValue = list.get(i);
+//            if (currentValue <= pivot) {
+//                lessThanPivot.add(currentValue);
+//            } else {
+//                greaterThanPivot.add(currentValue);
+//            }
+//        }
+//        ArrayList<Integer> sortedList = new ArrayList<Integer>();
+//        sortedList.addAll(quicksort(lessThanPivot));
+//        sortedList.add(pivot);
+//        sortedList.addAll(quicksort(greaterThanPivot));
+//        return sortedList;
+//    }
+//
+//    //MERGESORT
+//
+//    static List<Integer> mergeSort(List<Integer> list) {
+//        if (list.size() <= 1) {
+//            return list;
+//        }
+//        int middleIndex = list.size() / 2;
+//        List<Integer> leftList =
+//                mergeSort(list.subList(0, middleIndex));
+//        List<Integer> rightList =
+//                mergeSort(list.subList(middleIndex, list.size()));
+//        List<Integer> sortedList = new ArrayList<Integer>();
+//        int leftIndex = 0;
+//        int rightIndex = 0;
+//        int leftLength = leftList.size();
+//        int rightLength = rightList.size();
+//        while (leftIndex < leftLength && rightIndex < rightLength) {
+//            if (leftList.get(leftIndex) < rightList.get(rightIndex)) {
+//                sortedList.add(leftList.get(leftIndex));
+//                leftIndex++;
+//            } else {
+//                sortedList.add(rightList.get(rightIndex));
+//                rightIndex++;
+//            }
+//        }
+//        sortedList.addAll(leftList.subList(leftIndex, leftLength));
+//        sortedList.addAll(rightList.subList(rightIndex, rightLength));
+//        return sortedList;
+//    }
+//
+//    //BINARY SEARCH
+//
+//    static int indexOfItem(List<String> list, String target) {
+//        int first = 0;
+//        int last = list.size() - 1;
+//        while (first <= last) {
+//            int midpoint = (first + last) / 2;
+//            int comparisonResult = list.get(midpoint).compareTo(target);
+//            if (comparisonResult == 0) {
+//                return midpoint;
+//            } else if (comparisonResult < 0) {
+//                first = midpoint + 1;
+//            } else {
+//                last = midpoint - 1;
+//            }
+//        }
+//        // We have to return an integer, so return an "impossible"
+//        // index to indicate value was not found.
+//        return -1;
+//    }
 
 
     //System.out.println(IntStream.range(1,5).sum()); //prints 10 (sum of all numbers up to and not including 5.)

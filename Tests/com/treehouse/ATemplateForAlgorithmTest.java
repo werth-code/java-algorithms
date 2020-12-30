@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class Cb1Test {
+class ATemplateForAlgorithmTest {
 
     @Test
     void test1() {

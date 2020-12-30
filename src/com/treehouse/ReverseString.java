@@ -1,7 +1,5 @@
 package com.treehouse;
 
-import java.util.Arrays;
-
 public class ReverseString {
 
     public static String simpleReverseString(String input) {
