@@ -28,4 +28,25 @@ public class DashInsert {
         result += nums[nums.length - 1];
         return result;
     }
+
+
+    public static String DashInsert2(String str) {
+        char[] nums = str.toCharArray();
+        StringBuilder result = new StringBuilder();
+
+        for(int i = 1; i < nums.length; i++) {
+            int prev = Character.getNumericValue(nums[i-1]); //so we can check with %
+            int curr = Character.getNumericValue(nums[i]);
+            result.append(prev);
+
+            if(prev % 2 != 0 && curr % 2 != 0) result.append("-");
+        }
+        result.append(nums[nums.length -1]);
+        return result.toString();
+    }
+
+//    public static String DashInsert3(String str) {
+//        //return str.replace("/([13579])(?=[13579])/g, '$1-')
+//    }
+
 }

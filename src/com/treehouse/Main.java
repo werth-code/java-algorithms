@@ -13,14 +13,11 @@ public class Main {
     //quicksort is marginally faster than mergesort but they are both highly efficient. (0 log n)
 
     public static void main(String[] args) {
-
-        List<String> strings = new ArrayList<>();
-
-
+        ArrayList<Integer> list = new ArrayList<Integer>(Arrays.asList(32, 100, 1, 2, 29, 28, 88, 3, 50, 67, 37, 1, 57, 20));
+        System.out.println(quicksort(list));
     }
 
-//            ArrayList<Integer> list = new ArrayList<Integer>(Arrays.asList(32, 100, 1, 2, 29, 28, 88, 3, 50, 67, 37, 1, 57, 20));
-//        System.out.println(quicksort(list));
+
 //
 //        ArrayList<Integer> list2 = new ArrayList<Integer>(Arrays.asList(32, 100, 1, 2, 29, 28, 88, 3, 50, 67, 37, 1, 57, 20));
 //        System.out.println(mergeSort(list2));
@@ -30,31 +27,31 @@ public class Main {
 //        System.out.println(indexOfItem(list3, "Lucie Hansman"));
 
 //    //QUICKSORT
-//
-//    static ArrayList<Integer> quicksort(ArrayList<Integer> list) {
-//        if (list.size() <= 1) {
-//            return list;
-//        }
-//
-//        ArrayList<Integer> lessThanPivot = new ArrayList<Integer>();
-//        ArrayList<Integer> greaterThanPivot = new ArrayList<Integer>();
-//
-//        int pivot = list.get(0);
-//        int length = list.size();
-//        for (int i = 1; i < length; i++) {
-//            int currentValue = list.get(i);
-//            if (currentValue <= pivot) {
-//                lessThanPivot.add(currentValue);
-//            } else {
-//                greaterThanPivot.add(currentValue);
-//            }
-//        }
-//        ArrayList<Integer> sortedList = new ArrayList<Integer>();
-//        sortedList.addAll(quicksort(lessThanPivot));
-//        sortedList.add(pivot);
-//        sortedList.addAll(quicksort(greaterThanPivot));
-//        return sortedList;
-//    }
+
+    static ArrayList<Integer> quicksort(ArrayList<Integer> list) {
+        if (list.size() <= 1) {
+            return list;
+        }
+
+        ArrayList<Integer> lessThanPivot = new ArrayList<Integer>();
+        ArrayList<Integer> greaterThanPivot = new ArrayList<Integer>();
+
+        int pivot = list.get(0);
+        int length = list.size();
+        for (int i = 1; i < length; i++) {
+            int currentValue = list.get(i);
+            if (currentValue <= pivot) {
+                lessThanPivot.add(currentValue);
+            } else {
+                greaterThanPivot.add(currentValue);
+            }
+        }
+        ArrayList<Integer> sortedList = new ArrayList<Integer>();
+        sortedList.addAll(quicksort(lessThanPivot));
+        sortedList.add(pivot);
+        sortedList.addAll(quicksort(greaterThanPivot));
+        return sortedList;
+    }
 //
 //    //MERGESORT
 //
