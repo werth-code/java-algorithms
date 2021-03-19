@@ -1,24 +1,21 @@
 package com.treehouse;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class ContainsDuplicate {
 
         public static boolean containsDuplicate(int[] nums) {
-            if(nums.length <= 1) return false;
-
-            HashMap<Integer, Integer> hash = new HashMap<>();
-            for(int i = 0; i < nums.length; i++) {
-                Integer current = nums[i];
-                if(hash.containsKey(current)) return true;
-                else hash.put(current, 1);
-            }
-
-            return false;
+//            if(nums.length <= 1) return false;
+//
+//            HashMap<Integer, Integer> hash = new HashMap<>();
+//            for(int i = 0; i < nums.length; i++) {
+//                Integer current = nums[i];
+//                if(hash.containsKey(current)) return true;
+//                else hash.put(current, 1);
+//            }
+//
+//            return false;
 
 //            if(nums.length <= 1) return false;
 //
@@ -29,6 +26,12 @@ public class ContainsDuplicate {
 //                if(current == next) return true;
 //            }
 //            return false;
+
+            Set<Integer> numSet = new HashSet<>();
+            for(int i = 0; i < nums.length; i++) {
+                numSet.add(nums[i]);
+            }
+            return numSet.size() != nums.length;
         }
 
 }

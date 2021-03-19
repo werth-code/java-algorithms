@@ -35,6 +35,32 @@ class TwoSumTest {
         Assert.assertEquals(expected, actual);
     }
 
+    @Test
+    void twoSumTest3(){
+
+        int[] nums = new int[] {3, 2, 4};
+        int target = 6;
+
+        int[] exp =  {1,2};
+        String expected = Arrays.toString(exp);
+        String actual = Arrays.toString(TwoSum.twoSum3(nums, target));
+        System.out.println(actual);
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    void twoSumTest4(){
+
+        int[] nums = new int[] {3};
+        int target = 6;
+
+        int[] actual = TwoSum.twoSum3(nums, target);
+        System.out.println(actual);
+
+        Assert.assertNull(actual);
+    }
+
 }
 
 

@@ -1,8 +1,7 @@
 package com.treehouse;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.sql.Array;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -47,6 +46,23 @@ public class TwoSum {
     }
 
 
-}
 
-// TODO: 12/18/20 This can be solved with the same logic using a HashMap - try to do this using  streams.
+
+    //{3, 2, 4} --> 6
+
+    public static int[] twoSum3 (int[] nums, int target) {
+        if(nums.length == 1 || nums.length == 0) return null;
+
+        Map<Integer, Integer> numberIndexMap = new HashMap<>(); // map[number] = index
+
+        for(int i = 0; i < nums.length; i++) { // loop through the arr
+            int neededNum = target - nums[i]; //find our needed number by subtracting our current number from our target - will this work with negative nums?
+            if(numberIndexMap.containsKey(neededNum)) return new int[] {numberIndexMap.get(neededNum), i}; // if our needed number exists in our hashmap --> return index of [ current number, hashMap[neededNum] ]
+            else numberIndexMap.put(nums[i], i);
+        }
+        return null;
+    }
+
+
+
+}
