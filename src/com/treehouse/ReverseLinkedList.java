@@ -64,29 +64,21 @@ public class ReverseLinkedList {
 
         LinkedList list = new LinkedList();
 
+
+
         list.add(node1);
         list.add(node2);
         list.add(node3);
         list.add(node4);
         list.add(node5);
 
-        System.out.println(list.toString());
-        System.out.println(reverseLinkedList2(list));
+        //System.out.println(list.head);
+        //System.out.println(list.head.next);
 
-        //System.out.println(partialReverseLinkedList(list, 2, 4));
-    }
+        //System.out.println(list.toString());
+        //System.out.println(reverseLinkedList2(list));
 
-    public static Node reverseLinkedList2(LinkedList list) {
-        Node prev = null;
-        Node current = list.head;
-
-        while(current != null) {
-            Node next = current.next; // save the value we formerly pointed to
-            current.next = prev;      // set the pointer to the value behind us
-            prev = current;           // set prev to current
-            current = next;           // current is going to = the value we saved old pointer value
-        }
-        return prev;
+        System.out.println(partialReverseLinkedList(list.head, 2, 4));
     }
 
     public static Node reverseLinkedList(LinkedList list) {
@@ -104,7 +96,38 @@ public class ReverseLinkedList {
     }
 
 
-    public static Node partialReverseLinkedList(LinkedList list, int m, int n) {
+    public static Node reverseLinkedList2(LinkedList list) {
+        Node prev = null;
+        Node current = list.head;
+
+        while(current != null) {
+            Node next = current.next; // save the value we formerly pointed to
+            current.next = prev;      // set the pointer to the value behind us
+            prev = current;           // set prev to current
+            current = next;           // current is going to = the value we saved old pointer value
+        }
+        return prev;
+    }
+
+    public static Node partialReverseLinkedList(Node node, int m, int n) {
+        if(node.next == null) return node;
+        if(m == n) return node;
+
+        Node prev = null;
+        Node current = node;
+
+        int i = 1;
+        while(i < m) {
+            prev = current;
+            current = current.next;
+            i++; // always remember to increment you dummy
+        }
+
+
+
+        System.out.println(current);
+        System.out.println(prev);
+
         return null;
     }
 }

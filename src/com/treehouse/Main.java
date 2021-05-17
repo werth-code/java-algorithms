@@ -1,20 +1,26 @@
 package com.treehouse;
-
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Locale;
-import java.util.stream.Stream;
-
 
 public class Main {
 
     //quicksort is marginally faster than mergesort but they are both highly efficient. (0 log n)
 
-    public static void main(String[] args) {
-        ArrayList<Integer> list = new ArrayList<Integer>(Arrays.asList(32, 100, 1, 2, 29, 28, 88, 3, 50, 67, 37, 1, 57, 20));
-        System.out.println(quicksort(list));
+    public static void main(String[] args) throws Exception {
+//        ArrayList<Integer> list = new ArrayList<Integer>(Arrays.asList(32, 100, 1, 2, 29, 28, 88, 3, 50, 67, 37, 1, 57, 20));
+//        System.out.println(quicksort(list));
+
+        BinaryTreeNode node = new BinaryTreeNode(10);
+        BinaryTree binaryTree = new BinaryTree(node);
+
+        binaryTree.insert(node, 2);
+        binaryTree.insert(node, 12);
+        binaryTree.insert(node, 10);
+
+        System.out.println(binaryTree);
+
+        String a = "aaadvvvv";
+        Character b = a.charAt(0);
+
     }
 
 
