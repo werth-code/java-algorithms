@@ -21,6 +21,8 @@ public class Main {
         String a = "aaadvvvv";
         Character b = a.charAt(0);
 
+        System.out.println(18 % 10);
+
     }
 
 
