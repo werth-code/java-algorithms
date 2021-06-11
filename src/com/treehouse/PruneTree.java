@@ -10,38 +10,15 @@ public class PruneTree {
 
     }
 
-    public static TreeNode pruneTree(TreeNode root) {
-        if(root == null) return null;
-        has1(root);
-        return root;
-    }
-
-    public static boolean has1(TreeNode node) {
-        if(node == null) return false;
-        boolean left = has1(node.left);
-        boolean right = has1(node.right);
-
-        if(!left) node.left = null;
-        if(!right) node.right = null;
-
-        return node.val == 1 || left || right;
-    }
-
-
-
-    public class TreeNode {
-        TreeNode left;
-        TreeNode right;
-        int val;
-        public TreeNode(int val) {
-            this.val = val;
-        }
-        public TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
+//    public TreeNode pruneTree(TreeNode root) {
+//        if(root == null) return null; // i
+//
+//        root.left = pruneTree(root.left); // pass in the left side
+//        root.right = pruneTree(root.right); // pass in the right side
+//
+//        if(root.right == 0 && root.left == null && root.val == null) root = null;
+//        return root;
+//    }
 
 
 }

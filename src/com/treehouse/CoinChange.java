@@ -53,11 +53,12 @@ public class CoinChange {
         for(int counter = 0; counter <= amount; counter++) { // go through up to amount. counter is our coin counter
             for (int coin : coins) { // look at each coin's value
                 if (coin <= counter) { // if this coin is less than or equal to our amount
-                    pastNumCoins[counter] = Math.min(pastNumCoins[counter], pastNumCoins[counter - coin] + 1); // keep setting our coin until coins[j] is > than counter
+                    if((pastNumCoins[counter - coin] + 1) < pastNumCoins[counter])
+                        pastNumCoins[counter] = pastNumCoins[counter - coin] + 1; // keep setting our coin until coins[j] is > than counter
                 }
             }
         }
-        if(pastNumCoins[amount] > amount) return - 1;
+        if(pastNumCoins[amount] == amount + 1) return - 1; // check and see if we changed the value or if it is still the default
         else return pastNumCoins[amount];
     }
 

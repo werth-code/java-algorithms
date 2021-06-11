@@ -6,18 +6,21 @@ import java.util.List;
 
 public class SmallestSubstring {
 
+    public static void main(String[] args) {
+
+
+    }
+
     public static String smallestSubstringUniqueChars(char[] arr, String str) {
         String output = "";
         int checkCount = 0;
-        List<String> strArr = new ArrayList<String>(Arrays.asList(str.split("")));
+        List<String> strArr = new ArrayList<>(Arrays.asList(str.split("")));
 
         for(int i = 0; i < arr.length; i++) {
             char current = arr[i];
             if(strArr.contains(current)) { //This is the part that wont work. Its having trouble with string...
                 output += current;
                 checkCount ++;
-                System.out.println(checkCount);
-                System.out.println(output);
                 if(checkCount == arr.length) return output;
             }
             else {
